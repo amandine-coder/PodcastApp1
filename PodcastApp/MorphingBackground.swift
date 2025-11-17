@@ -8,34 +8,33 @@
 import SwiftUI
 
 struct MorphingBackground: View {
-    // Les 2 couleurs
-       let colorA: Color  // Couleur des "blobs"
-       let colorB: Color  // Couleur de fond
-    // Interrupteur pour l'animation (OFF au début)
+   
+       let colorA: Color  
+       let colorB: Color 
      @State private var bouge = false
 
     var body: some View {
         ZStack {
                    
                   
-                   //FOND FIXE
-                   colorB  // Remplit tout en bleu
-                  // LES "BLOBS" QUI BOUGENT
-                   colorA  // Couleur beige
-                       .mask(  // On cache des parties
+                   
+                   colorB  
+                  
+                   colorA 
+                       .mask(  
                            
-                           // On empile 3 cercles
+                           
                            ZStack {
                                
-                               // Cercle 1 : Grand
+                               
                                Circle()
                                    .frame(width: 300)
                                    .offset(
-                                       x: bouge ? -50 : 50,    // Bouge de gauche à droite
-                                       y: bouge ? -100 : 50     // Bouge de haut en bas
+                                       x: bouge ? -50 : 50,    
+                                       y: bouge ? -100 : 50     
                                    )
                                
-                               // Cercle 2 : Moyen
+                               
                                Circle()
                                    .frame(width: 250)
                                    .offset(
@@ -43,7 +42,7 @@ struct MorphingBackground: View {
                                        y: bouge ? 80 : -70
                                    )
                                
-                               // Cercle 3 : Petit
+                               
                                Circle()
                                    .frame(width: 200)
                                    .offset(
@@ -51,20 +50,20 @@ struct MorphingBackground: View {
                                        y: bouge ? 120 : -100
                                    )
                            }
-                           .blur(radius: 140)  // ✨ Effect blur = "morphing"
+                           .blur(radius: 140)  
                        )
-                       // ANIMATION : change la position en 3 secondes
+                      
                        .animation(
                            .easeInOut(duration: 5)
                             .repeatForever(autoreverses: true),
                            value: bouge
                        )
                }
-               .ignoresSafeArea()  // Remplit tout l'écran
+               .ignoresSafeArea()  
                
-               // active l'animation
+              
                .onAppear {
-                   bouge = true  // Passe de false à true → ça bouge !
+                   bouge = true  
                }
            }
        }
