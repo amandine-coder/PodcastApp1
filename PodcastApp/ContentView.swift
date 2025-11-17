@@ -9,18 +9,16 @@ import SwiftUI
 
 
 struct ContentView: View {
-    // Données fixes
         let dateText = "MAY 15"
         let show = "BLOOD RELATIVES"
         let title = "Episode 1"
         let duration: Double = 26 * 60
 
-        // États
+        
         @State private var position: Double = 15 * 60 + 16
         @State private var isPlaying = false
         @State private var speed: Double = 1.0
         @State private var volume: Double = 0.35
-    // Animation du dégradé
         @State private var animateGradient = false
         private func seek(_ d: Double) { position = min(duration, max(0, position + d)) }
 
@@ -47,7 +45,7 @@ struct ContentView: View {
                                                 onFwd30:  { seek(30) }
                                             ).padding(.top, 30)
 
-                                            VolumeBarView(volume: $volume)           // <- pas de “card”, juste du padding
+                                            VolumeBarView(volume: $volume)          
                                                 .padding(.top, 30)
 
                                             BottomBarView()
@@ -57,7 +55,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                         
                                     }
-                                    .onAppear { animateGradient = true }              // démarre l’animation
+                                    .onAppear { animateGradient = true }              
                 }
             }
         }
