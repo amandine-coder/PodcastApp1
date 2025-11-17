@@ -13,7 +13,7 @@ struct HeaderSectionView: View {
 
     var body: some View {
         HStack(alignment: .top) {
-            // Texte à gauche
+           
             VStack(alignment: .leading, spacing: 6) {
                 Text(dateText).font(.caption).foregroundColor(.white.opacity(0.7))
                 Text(show).font(.title3).bold().foregroundColor(.white)
@@ -22,7 +22,7 @@ struct HeaderSectionView: View {
 
             Spacer(minLength: 12)
 
-            // Bouton "…" à droite
+            
             Circle()
                 .fill(.white.opacity(0.15))
                 .frame(width: 40, height: 40)
