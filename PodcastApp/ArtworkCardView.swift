@@ -12,13 +12,13 @@ struct ArtworkCardView: View {
     var body: some View {
         Image(imageName)
             .resizable()
-            .scaledToFill()                 // remplit sans bandes noires
-            .frame(height: 340)             // hauteur contrôlée
-            .clipped()                      // rogne proprement dans le cadre
-            .clipShape(RoundedRectangle(cornerRadius: 22)) // coins arrondis
+            .scaledToFill()                 
+            .frame(height: 340)             
+            .clipped()                     
+            .clipShape(RoundedRectangle(cornerRadius: 22)) 
             .shadow(radius: 10)
             .padding(.horizontal)
-            .padding(.top, 24)              // descend l’image sous l’encoche
+            .padding(.top, 24)              
     }
 }
 
